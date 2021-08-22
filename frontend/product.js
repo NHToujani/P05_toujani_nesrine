@@ -22,12 +22,17 @@ async function getDetailProduct() {
         console.log(camera);
         const ajouterPanier = "Ajouter au panier";
       
-          let myContainer = document.createElement('div');
-          myContainer.setAttribute("class","card col-lg-4");
-          let myProductLink = document.createElement('a');
-          myProductLink.setAttribute("class","productLink");
+          let myContainer = document.createElement('article');
+          myContainer.setAttribute("class","row col-12");
+          
+          let myImageContainer = document.createElement('div');
+          myImageContainer.setAttribute("class","cover col-lg-6");
           let myCamera = document.createElement('img');
-          myCamera.classList.add("w-100");
+            myCamera.classList.add("w-100");
+         
+            
+          let myDetailContainer = document.createElement('div');
+          myDetailContainer.setAttribute("class","col-lg-6");
           let myTitle = document.createElement('h5');
           myTitle.classList.add("card-title");
           let myDescription = document.createElement('p');
@@ -48,15 +53,16 @@ async function getDetailProduct() {
           myButton.textContent = ajouterPanier;
       
 
+          myImageContainer.appendChild(myCamera);
       
-        myProductLink.appendChild(myTitle);
-        myProductLink.appendChild(myCamera);
-        myProductLink.appendChild(myDescription);
-        myProductLink.appendChild(myPrice);
-        myProductLink.appendChild(myLenses);
-        myProductLink.appendChild(myButton);
+          myDetailContainer.appendChild(myTitle);
+          myDetailContainer.appendChild(myDescription);
+          myDetailContainer.appendChild(myPrice);
+          myDetailContainer.appendChild(myLenses);
+          myDetailContainer.appendChild(myButton);
 
-        myContainer.appendChild(myProductLink);
+          myContainer.appendChild(myImageContainer);
+          myContainer.appendChild(myDetailContainer);
       
         elt.appendChild(myContainer);
       }

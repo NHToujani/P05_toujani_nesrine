@@ -67,23 +67,18 @@ async function getListCameras() {
           myDescription.classList.add("card-text");
           let myPrice = document.createElement('p');
           myPrice.classList.add("card-price");
-          let myLenses = document.createElement('p');
-          myLenses.setAttribute("class","card-text lences");
             
           myCamera.setAttribute("src", listCameras[i].imageUrl );
           myCamera.setAttribute("id", listCameras[i]._id );
           myTitle.textContent = listCameras[i].name;
           myDescription.textContent = listCameras[i].description;
           myPrice.textContent = listCameras[i].price;
-          myLenses.textContent = listCameras[i].lenses;
-      
 
       
         myProductLink.appendChild(myTitle);
         myProductLink.appendChild(myCamera);
         myProductLink.appendChild(myDescription);
         myProductLink.appendChild(myPrice);
-        myProductLink.appendChild(myLenses);
 
         myContainer.appendChild(myProductLink);
       
