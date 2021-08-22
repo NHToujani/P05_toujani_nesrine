@@ -11,3 +11,9 @@ body{
     height: 50%;
     width: 25%;
 }
+.ajouterPanier{
+    font-size: 12;
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+}
