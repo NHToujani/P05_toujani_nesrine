@@ -6,6 +6,11 @@
 body{
     margin: auto;
     box-sizing: border-box;
+}.navbar{
+    background-color: rgb(243 233 241);
+}
+main{
+    padding: 3rem 0 3rem;
 }
 .h20{
     height: 50%;
@@ -17,4 +22,10 @@ body{
     border-radius: 5px;
     color: white;
     background-color: blue;
+}
+footer{
+    padding: 50px;
+}
+ul{
+    margin-top: 1rem;
 }

@@ -75,8 +75,8 @@ async function getListCameras() {
           myPrice.textContent = listCameras[i].price;
 
       
-        myProductLink.appendChild(myTitle);
         myProductLink.appendChild(myCamera);
+        myProductLink.appendChild(myTitle);
         myProductLink.appendChild(myDescription);
         myProductLink.appendChild(myPrice);
 
