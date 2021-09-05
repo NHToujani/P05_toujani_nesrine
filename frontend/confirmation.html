@@ -22,17 +22,20 @@
         <nav class="navbar navbar-expand">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <span class="nav-cart-icon">
-                    <i class="fas fa-shopping-basket"></i>
-                    </span>
-                    <a class="nav-link panier" href="./panier.html" title="panier">Panier</a>
+                    <a class="nav-link panier" href="./index.html" title="acceuil">Acceuil</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <div class="row col-12" id="list-cameras">
-        
+   <section>
+    <div class="confirmation text-center">
+        <i class="far fa-check-circle"></i>
+        <h2>Votre commande a bien été prise en compte !</h2>        
+        <p>Référence de commande : <span id="ordernumber" class="h6"></span></p>
+        <p>Montant total : <span id="totalproduct" class="h6"></span></p><br>
+        <p>Nous vous remercions pour votre commande. <br> N'hésitez pas à nous contacter si vous avez des questions.</p>
     </div>
+   </section>
 
     <footer>
         <div class="bg-light">
@@ -51,7 +54,7 @@
             </div>
         </div>
     </footer>
-    <script src="./index.js"></script>
+    <script src="./confirmation.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
