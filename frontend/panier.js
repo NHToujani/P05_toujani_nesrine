@@ -1,7 +1,3 @@
-
-
-
-
 async function getpanelelements() {
   let panel = JSON.parse(localStorage.getItem("productpanel"));
   let panelContainer = document.getElementById("panellist");

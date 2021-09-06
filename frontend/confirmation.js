@@ -1,4 +1,4 @@
-/********************* AFFICHER TOUS LES PRODUITS *********************/
+/********************* AFFICHER LE NUMERO D'ORDRE ET LE TOTAL *********************/
 
 /* Appeler les données de l'API du serveur */
 // paramètres d'entrée: 
@@ -10,7 +10,10 @@ async function getTotalPrice() {
     let totalProducts= JSON.parse(localStorage.getItem("totalProducts"));
     let orderNumber =Math.floor(Math.random()*1000000);
 
-    totalProductElement.textContent = totalProducts;
+    totalProductElement.textContent = totalProducts.toLocaleString("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+    });;
     orderNumberElement.textContent = orderNumber;
 
     // suprimer les données dans le local storage

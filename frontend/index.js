@@ -22,33 +22,32 @@ async function getListCameras() {
         /* Créer des cartes produits */
         for (let i = 0; i < listCameras.length; i++) {
           let myContainer = document.createElement('div');
-          myContainer.setAttribute("class","card col-lg-4");
+          myContainer.setAttribute("class","card shadow p-0 mb-3 col-lg-4");
           let myProductLink = document.createElement('a');
           myProductLink.setAttribute("class","productLink");
           myProductLink.setAttribute("href","product.html?id="+listCameras[i]._id );
           let myCamera = document.createElement('img');
           myCamera.classList.add("w-100");
+          let myCardBody = document.createElement('div');
+          myCardBody.classList.add("card-body")
           let myTitle = document.createElement('h5');
           myTitle.classList.add("card-title");
-          let myDescription = document.createElement('p');
-          myDescription.classList.add("card-text");
           let myPrice = document.createElement('p');
           myPrice.classList.add("card-price");
             
           myCamera.setAttribute("src", listCameras[i].imageUrl );
           myCamera.setAttribute("id", listCameras[i]._id );
           myTitle.textContent = listCameras[i].name;
-          myDescription.textContent = listCameras[i].description;
           myPrice.textContent = listCameras[i].price.toLocaleString("fr-FR", {
             style: "currency",
             currency: "EUR",
           });
-
-      
+        myCardBody.appendChild(myTitle);
+        myCardBody.appendChild(myPrice);
         myProductLink.appendChild(myCamera);
-        myProductLink.appendChild(myTitle);
-        myProductLink.appendChild(myDescription);
-        myProductLink.appendChild(myPrice);
+        myProductLink.appendChild(myCardBody);
+        
+        
 
         myContainer.appendChild(myProductLink);
       
