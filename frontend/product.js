@@ -4,8 +4,8 @@ function getUrlParametre(sVar) {
     window.location.search.replace(
       new RegExp(
         "^(?:.*[&\\?]" +
-          escape(sVar).replace(/[\.\+\*]/g, "\\$&") +
-          "(?:\\=([^&]*))?)?.*$",
+        escape(sVar).replace(/[\.\+\*]/g, "\\$&") +
+        "(?:\\=([^&]*))?)?.*$",
         "i"
       ),
       "$1"
@@ -15,19 +15,7 @@ function getUrlParametre(sVar) {
 /* Récupérer les détails d'un produit */
 /* paramètre d'entrée: id produit*/
 /* paramètre sortie: détail produit: caméras*/
- 
-// /* Obtenir l'ID du produit de l'URL*/
-// function getProductId() {
-//   return new URL(document.location).searchParams.get('id');
-// };
-// /* Appeler les données par ID de l'API du serveur  */
-// function getProductInfo(productId) {
-//   return fetch(`http://localhost:3000/api/cameras/${productId}`)
-//     .then((responseHttp) => responseHttp.json())
-//     .catch(function (error) {
-//       showErrorMessage()
-//     });
-// }; ==> à vérifier avec Omar
+
 let idProduct = getUrlParametre("id");
 const requestURL = `http://localhost:3000/api/cameras/${idProduct}`;
 fetch(requestURL, {
@@ -52,7 +40,7 @@ function showCameras(camera) {
   const ajouterPanier = "Ajouter au panier";
 
   let myContainer = document.createElement("article");
-  myContainer.setAttribute("class", "row col-12");
+  myContainer.setAttribute("class", "row pl-5 col-12");
 
   let myImageContainer = document.createElement("div");
   myImageContainer.setAttribute("class", "cover col-lg-6");

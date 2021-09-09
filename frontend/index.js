@@ -27,7 +27,7 @@ async function getListCameras() {
     /* Créer des cartes produits */
     for (let i = 0; i < listCameras.length; i++) {
       let myContainer = document.createElement('div');
-      myContainer.setAttribute("class", "card shadow p-0 mb-3 col-lg-4");
+      myContainer.setAttribute("class", "card shadow p-3 m-3 col-lg-4");
       let myProductLink = document.createElement('a');
       myProductLink.setAttribute("class", "productLink");
       myProductLink.setAttribute("href", "product.html?id=" + listCameras[i]._id);

@@ -1,7 +1,11 @@
-async function getpanelelements() {
-  let panel = JSON.parse(localStorage.getItem("productpanel"));
-  let panelContainer = document.getElementById("panellist");
-  let TotalPanel = document.getElementById("totalpanel");
+/********************* AFFICHER DES PRODUITS DANS LE PANIER *********************/
+
+
+/* Accéder au Local Storage et parser la valeur de 'productPanel' */
+async function getPanelElements() {
+  let panel = JSON.parse(localStorage.getItem("productPanel"));
+  let panelContainer = document.getElementById("panelList");
+  let TotalPanel = document.getElementById("totalPanel");
 
   let totalProducts = 0;
   for (let i = 0; i < Object.keys(panel).length; i++) {
@@ -86,7 +90,7 @@ function sendOrderToServer() {
       city: document.getElementById('city').value,
       email: document.getElementById('email').value
   }
-  let productPanel = localStorage.getItem('productpanel');
+  let productPanel = localStorage.getItem('productPanel');
   // Créer un array "products" 
   let productId = [];
   for (let i = 0; i < productPanel.length; i++) {
