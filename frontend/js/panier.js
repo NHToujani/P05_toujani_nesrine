@@ -120,7 +120,7 @@ function sendOrderToServer() {
             let idOrder = data.orderId;
             window.localStorage.setItem("orderId", JSON.stringify(idOrder));
 
-            window.location.href = "./confirmation.html";
+            window.location.href = "../html/confirmation.html";
         })
         .catch((error) => {
             alert(`Il y a eu une erreur : ` + error)
