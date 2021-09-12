@@ -117,7 +117,7 @@ function addlenses() {
     let selectedlense =
         selectedlenses.options[selectedlenses.selectedIndex].value;
     console.log(selectedlense);
-    // product.lenses[0] = selectedlense;
+    product.lenses[0] = selectedlense;
     product.quantity = 1;
     let panelProduct = {};
     if (JSON.parse(window.localStorage.getItem("productpanel") !== null)) {

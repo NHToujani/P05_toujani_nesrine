@@ -1,49 +1,64 @@
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
-*{
+* {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     list-style-type: none;
     text-decoration: none;
-    color:black;
+    color: black;
     box-sizing: unset;
 }
-body{
+
+body {
     margin: auto;
     /* box-sizing: border-box; */
-}.navbar{
+}
+
+.navbar {
     background-color: rgb(243 233 241);
 }
-.nav-item{
+
+.nav-item {
     display: flex;
     align-items: center;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
 }
-main{
+
+:hover.btn {
+    color: white;
+}
+
+main {
     padding: 3rem 0 3rem;
 }
-.card-body{
+
+.card-body {
     display: flex;
     justify-content: space-between;
 }
-.h20{
+
+.h20 {
     height: 50%;
     width: 25%;
 }
-.ajouterPanier{
-    font-size: 12;
 
+.ajouterPanier {
+    font-size: 12px;
     border-radius: 5px;
     color: white;
     background-color: blue;
 }
-footer{
+
+footer {
     padding: 50px 0;
 }
-.bg-light{
+
+.bg-light {
     background-color: #F3E9F1 !important;
 }
-ul{
+
+ul {
     margin-top: 1rem;
 }
