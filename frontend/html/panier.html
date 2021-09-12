@@ -27,7 +27,7 @@
 </header>
 
 <body onload="getPanelElements()">
-    <section id="">
+    <section id="panelcontainer" class="col-lg-12">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -52,7 +52,7 @@
     </section>
     <!--Formulaire de validation du commande-->
 
-    <section id="order-form" class="mt-5">
+    <section id="order-form" class="col-lg-6">
         <h3 class="mb-4">FORMULAIRE DE COMMANDE</h3>
         <form id="formulaire" method="POST">
             <div class="form-group pb-2">
@@ -85,6 +85,24 @@
             </div>
         </form>
     </section>
+
+    <footer>
+        <div class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item"><a href="#">À propos</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="#">Vie privée</a></li>
+                            <li class="list-inline-item">&middot;</li>
+                            <li class="list-inline-item"><a href="#">Conditions d'utilisations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

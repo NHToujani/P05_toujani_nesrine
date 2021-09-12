@@ -5,12 +5,13 @@
     list-style-type: none;
     text-decoration: none;
     color: black;
-    box-sizing: unset;
+    /* box-sizing: unset; */
 }
 
 body {
     margin: auto;
     /* box-sizing: border-box; */
+    background-color: #F3E9F1;
 }
 
 .navbar {
@@ -49,10 +50,6 @@ main {
     border-radius: 5px;
     color: white;
     background-color: blue;
-}
-
-footer {
-    padding: 50px 0;
 }
 
 .bg-light {
