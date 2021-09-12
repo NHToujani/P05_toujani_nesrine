@@ -7,27 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Le site e-commerce pour des caméras vintage">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://kit.fontawesome.com/398574a0d4.js" crossorigin="anonymous"></script>
 
     <title>Orinoco</title>
 </head>
 <header class="navbar">
-  <a class="nav-logo" href="index.html">
-      <img class="h20 bg-oniPink" src="./logo/logo.png" alt="Orinoco">
-  </a>
-  <nav class="navbar navbar-expand">
-      <ul class="navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link panier" href="./index.html" title="acceuil">Acceuil</a>
-          </li>
-      </ul>
-  </nav>
+    <a class="nav-logo" href="index.html">
+        <img class="h20 bg-oniPink" src="./logo/logo.png" alt="Orinoco">
+    </a>
+    <nav class="navbar navbar-expand">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link panier" href="./index.html" title="acceuil">Acceuil</a>
+            </li>
+        </ul>
+    </nav>
 </header>
 
-<body onload="getpanelelements()">
+<body onload="getPanelElements()">
     <section id="">
         <table class="table table-striped">
             <thead>
@@ -45,80 +44,51 @@
                 <tr>
                     <td colspan="3" align="right"><strong>Total</strong></td>
                     <td id="totalpanel"></td>
-                    
+
                 </tr>
             </tfoot>
 
         </table>
     </section>
     <!--Formulaire de validation du commande-->
- 
-   <section id="order-form" class="mt-5" >
-    <h3 class="mb-4">FORMULAIRE DE COMMANDE</h3>
-    <form id="formulaire" method="POST">
-        <div class="form-group pb-2">
-            <label for="firstName" class="form-label h6">Prénom</label>
-            <input 
-                type="text" class="form-control" id="firstName" name="firstName" required
-                autocomplete="off" placeholder="ex) Norbert" 
-                minlength="1" maxlength="30"
-                pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
-                title="Prénom peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]."
-            />
-        </div>
-        <div class="form-group pb-2">
-            <label for="lastName" class="form-label h6">Nom de famille</label>
-            <input 
-                type="text" class="form-control" id="lastName" name="lastName" required
-                autocomplete="off" placeholder="ex) Ourson d'Orinoco" 
-                minlength="1" maxlength="30"
-                pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
-                title="Nom de famille peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]."
-            />
-        </div>
-        <div class="form-group pb-2">
-            <label for="address" class="form-label h6">Adresse</label>
-            <input 
-                type="text" class="form-control" id="address" name="address" required
-                autocomplete="off" placeholder="ex) 123 rue Orinoco"
-                minlength="3" maxlength="100"
-                pattern="[0-9a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ ,.'-/]*"
-                title="Adresse peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] [,] ['] [-] [/]."
-            />
-        </div>
-        <div class="form-group pb-2">
-            <label for="city" class="form-label h6">Ville</label>
-            <input 
-                type="text" class="form-control" id="city" name="city" required
-                autocomplete="off" placeholder="ex) Orinoco" 
-                minlength="2" maxlength="50"
-                pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ'-]*"
-                title="Nom de ville peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et ['] [-]."
-            />
-        </div>
-        <div class="form-group pb-2">
-            <label for="email" class="form-label h6">E-mail</label>
-            <input 
-                type="email" class="form-control" id="email" name="email" required
-                autocomplete="off" placeholder="ex) norbert@orinoco.com"   
-            />
-            <!-- pattern="^([a-zA-Z0-9.-_]+[@]{1}([a-zA-Z0-9].*\.\w{2,4}))$" -->
-        </div>
-        <div class="panier__button">
-            <button type="submit" class="btn btn-primary" id="form__orderButton">COMMANDER</button>
-        </div>
-    </form>
-</section>
+
+    <section id="order-form" class="mt-5">
+        <h3 class="mb-4">FORMULAIRE DE COMMANDE</h3>
+        <form id="formulaire" method="POST">
+            <div class="form-group pb-2">
+                <label for="firstName" class="form-label h6">Prénom</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required autocomplete="off" placeholder="ex) Norbert" minlength="1" maxlength="30" pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
+                    title="Prénom peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]." />
+            </div>
+            <div class="form-group pb-2">
+                <label for="lastName" class="form-label h6">Nom de famille</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required autocomplete="off" placeholder="ex) Ourson d'Orinoco" minlength="1" maxlength="30" pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
+                    title="Nom de famille peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]." />
+            </div>
+            <div class="form-group pb-2">
+                <label for="address" class="form-label h6">Adresse</label>
+                <input type="text" class="form-control" id="address" name="address" required autocomplete="off" placeholder="ex) 123 rue Orinoco" minlength="3" maxlength="100" pattern="[0-9a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ ,.'-/]*"
+                    title="Adresse peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] [,] ['] [-] [/]." />
+            </div>
+            <div class="form-group pb-2">
+                <label for="city" class="form-label h6">Ville</label>
+                <input type="text" class="form-control" id="city" name="city" required autocomplete="off" placeholder="ex) Orinoco" minlength="2" maxlength="50" pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ'-]*" title="Nom de ville peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et ['] [-]."
+                />
+            </div>
+            <div class="form-group pb-2">
+                <label for="email" class="form-label h6">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" required autocomplete="off" placeholder="ex) norbert@orinoco.com" />
+                <!-- pattern="^([a-zA-Z0-9.-_]+[@]{1}([a-zA-Z0-9].*\.\w{2,4}))$" -->
+            </div>
+            <div class="panier__button">
+                <button type="submit" class="btn btn-primary" id="form__orderButton">COMMANDER</button>
+            </div>
+        </form>
+    </section>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="./panier.js"></script>
 </body>
 
