@@ -12,6 +12,9 @@ async function getPanelElements() {
         let totalProducts = 0;
         for (let i = 0; i < Object.keys(panel).length; i++) {
             let myDetailContainer = document.createElement("tr");
+            let productImage = document.createElement("td");
+            let productImageUrl = document.createElement("img");
+            productImageUrl.classList.add("picture-100");
             let productName = document.createElement("td");
             let productQuantity = document.createElement("td");
             let productPrice = document.createElement("td");
@@ -24,6 +27,9 @@ async function getPanelElements() {
             let deleteButton = '<a href="" onclick=' + deleteElementMethod + '><i class="fas fa-trash-alt"></i>';
 
 
+            productImageUrl.setAttribute("src", productDetail.imageUrl);
+            productImageUrl.setAttribute("id", productDetail._id);
+            productImage.appendChild(productImageUrl);
             productName.textContent = productDetail.name;
             productQuantity.textContent = productDetail.quantity;
             deleteProduct.innerHTML = deleteButton;
@@ -39,7 +45,7 @@ async function getPanelElements() {
                 style: "currency",
                 currency: "EUR",
             });
-
+            myDetailContainer.appendChild(productImage);
             myDetailContainer.appendChild(productName);
             myDetailContainer.appendChild(productQuantity);
             myDetailContainer.appendChild(productPrice);

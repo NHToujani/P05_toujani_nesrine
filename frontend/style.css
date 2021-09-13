@@ -58,3 +58,7 @@ main {
 ul {
     margin-top: 1rem;
 }
+
+.picture-100 {
+    width: 100px;
+}
