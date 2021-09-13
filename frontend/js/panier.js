@@ -6,45 +6,58 @@ async function getPanelElements() {
     let panel = JSON.parse(localStorage.getItem("productpanel"));
     let panelContainer = document.getElementById("panellist");
     let TotalPanel = document.getElementById("totalpanel");
+    if (panel != null) {
 
-    let totalProducts = 0;
-    for (let i = 0; i < Object.keys(panel).length; i++) {
-        let myDetailContainer = document.createElement("tr");
-        let productName = document.createElement("td");
-        let productQuantity = document.createElement("td");
-        let productPrice = document.createElement("td");
-        let productTotal = document.createElement("td");
 
-        const productDetail = panel[Object.keys(panel)[i]];
+        let totalProducts = 0;
+        for (let i = 0; i < Object.keys(panel).length; i++) {
+            let myDetailContainer = document.createElement("tr");
+            let productName = document.createElement("td");
+            let productQuantity = document.createElement("td");
+            let productPrice = document.createElement("td");
+            let productTotal = document.createElement("td");
+            let deleteProduct = document.createElement("td");
 
-        productName.textContent = productDetail.name;
-        productQuantity.textContent = productDetail.quantity;
+            const productDetail = panel[Object.keys(panel)[i]];
+            const deleteElementMethod = "deletePanelElement('" + productDetail._id + "')";
 
-        // PRICE
+            let deleteButton = '<a href="" onclick=' + deleteElementMethod + '><i class="fas fa-trash-alt"></i>';
 
-        productPrice.textContent = productDetail.price.toLocaleString("fr-FR", {
+
+            productName.textContent = productDetail.name;
+            productQuantity.textContent = productDetail.quantity;
+            deleteProduct.innerHTML = deleteButton;
+
+            // PRICE
+
+            productPrice.textContent = (productDetail.price / 100).toLocaleString("fr-FR", {
+                style: "currency",
+                currency: "EUR",
+            });
+            let ProductTotalValue = productDetail.price * productDetail.quantity;
+            productTotal.textContent = (ProductTotalValue / 100).toLocaleString("fr-FR", {
+                style: "currency",
+                currency: "EUR",
+            });
+
+            myDetailContainer.appendChild(productName);
+            myDetailContainer.appendChild(productQuantity);
+            myDetailContainer.appendChild(productPrice);
+            myDetailContainer.appendChild(productTotal);
+            myDetailContainer.appendChild(deleteProduct);
+            panelContainer.appendChild(myDetailContainer);
+            totalProducts += ProductTotalValue;
+        }
+
+        TotalPanel.textContent = (totalProducts / 100).toLocaleString("fr-FR", {
             style: "currency",
             currency: "EUR",
         });
-        let ProductTotalValue = productDetail.price * productDetail.quantity;
-        productTotal.textContent = ProductTotalValue.toLocaleString("fr-FR", {
-            style: "currency",
-            currency: "EUR",
-        });
-
-        myDetailContainer.appendChild(productName);
-        myDetailContainer.appendChild(productQuantity);
-        myDetailContainer.appendChild(productPrice);
-        myDetailContainer.appendChild(productTotal);
-        panelContainer.appendChild(myDetailContainer);
-        totalProducts += ProductTotalValue;
+        window.localStorage.setItem("totalProducts", JSON.stringify(totalProducts));
+    } else {
+        panelContainer.innerHTML = '';
+        TotalPanel.textContent = '';
     }
-
-    TotalPanel.textContent = totalProducts.toLocaleString("fr-FR", {
-        style: "currency",
-        currency: "EUR",
-    });
-    window.localStorage.setItem("totalProducts", JSON.stringify(totalProducts));
 }
 
 const orderButton = document.getElementById('formulaire');
@@ -77,6 +90,20 @@ function validateFormInput() {
         //window.location.replace("confirmation.html");
     }
 
+
+}
+// supprimer un element dans le panier
+async function deletePanelElement(idElement) {
+    let panel = JSON.parse(localStorage.getItem("productpanel"));
+    delete panel[idElement];
+    window.localStorage.setItem("productpanel", JSON.stringify(panel));
+
+    // vider le local storage aprés la suppresion du dernier element dans le panier
+    if (Object.values(panel).length == 0) {
+        window.localStorage.removeItem("productpanel");
+        window.localStorage.removeItem("totalProducts");
+    }
+    document.location.reload();
 
 }
 

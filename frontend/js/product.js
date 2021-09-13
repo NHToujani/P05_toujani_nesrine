@@ -86,7 +86,7 @@ function showCameras(camera) {
     myCamera.setAttribute("id", camera._id);
     myTitle.textContent = camera.name;
     myDescription.textContent = camera.description;
-    myPrice.textContent = camera.price.toLocaleString("fr-FR", {
+    myPrice.textContent = (camera.price / 100).toLocaleString("fr-FR", {
         style: "currency",
         currency: "EUR",
     });
