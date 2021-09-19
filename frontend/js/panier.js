@@ -96,8 +96,8 @@ function validateFormInput() {
         //window.location.replace("confirmation.html");
     }
 
-
 }
+
 // supprimer un element dans le panier
 async function deletePanelElement(idElement) {
     let panel = JSON.parse(localStorage.getItem("productpanel"));
@@ -127,13 +127,14 @@ function sendOrderToServer() {
     let productPanel = JSON.parse(localStorage.getItem('productpanel'));
     console.log(productPanel);
     console.log(Object.keys(productPanel).length);
+
     // Créer un array "products" 
-    let productId = [];
+    let productsId = [];
     for (let i = 0; i < Object.keys(productPanel).length; i++) {
-        productId.push(Object.values(productPanel)[i]._id)
+        productsId.push(Object.values(productPanel)[i]._id)
     }
 
-    console.log(productId);
+    console.log(productsId);
     console.log(contactInput);
 
 
@@ -144,13 +145,14 @@ function sendOrderToServer() {
             mode: 'cors',
             body: JSON.stringify({
                 contact: contactInput,
-                products: productId
+                products: productsId
             })
         })
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
             let idOrder = data.orderId;
+            // Ajouter les données dans le localStorage
             window.localStorage.setItem("orderId", JSON.stringify(idOrder));
 
             window.location.href = "../html/confirmation.html";

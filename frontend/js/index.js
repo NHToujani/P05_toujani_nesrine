@@ -20,9 +20,9 @@ async function getListCameras() {
             alert(`Il y a eu une erreur : ` + error)
         });
 
-    function showCameras(jsonObj) {
+    function showCameras(cameras) {
         const elt = document.getElementById("list-cameras");
-        let listCameras = jsonObj;
+        let listCameras = cameras;
 
         /* Créer des cartes produits */
         for (let i = 0; i < listCameras.length; i++) {
