@@ -27,7 +27,7 @@ async function getDetailProduct() {
 
             let cameras = data;
             console.log(cameras);
-            showCameras(cameras)
+            showCameras(cameras);
         })
         .catch((error) => {
             alert(`Il y a eu une erreur : ` + error)
